@@ -1,0 +1,30 @@
+{
+  "name": "zengin",
+  "version": "0.0.1",
+  "description": "Game engine built with WebGL and Typescript",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edouardr/zengin.git"
+  },
+  "keywords": [
+    "game",
+    "engine",
+    "webgl",
+    "typescript"
+  ],
+  "author": "Edouard Riviere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edouardr/zengin/issues"
+  },
+  "homepage": "https://github.com/edouardr/zengin#readme",
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^0.8.2"
+  }
+}
