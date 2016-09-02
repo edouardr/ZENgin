@@ -3,12 +3,12 @@
 namespace Systems {
     export interface ISystem {
         // All systems must update each game loop
-        update(dt: number): void
+        update: (dt: number) => void
 
         // It's good practice to separate the construction and initialization code.
-        init(): void;
+        init: () => void;
 
         // This recieves any messages sent to the core engine
-        sendMessage(msg: Common.IMessage): void;
+        sendMessage: (msg: Common.IMessage) => void;
     }
 }

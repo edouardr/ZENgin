@@ -5,9 +5,9 @@ namespace Core {
     export interface IGameObject {
         position: Common.Vector
         components: Array<Components.IComponent>,
-        getComponent(id: string): Components.IComponent,
-        hasComponent(id: string): boolean,
-        addComponent(component: any): void
+        getComponent: (id: string) => Components.IComponent,
+        hasComponent: (id: string) => boolean,
+        addComponent: (component: any) => void
     }
 
     export class GameObject implements IGameObject {
@@ -19,6 +19,7 @@ namespace Core {
         }
 
         getComponent(id: string): Components.IComponent {
+            // TODO: add logic here
             return null;
         }
 
@@ -28,6 +29,7 @@ namespace Core {
 
         addComponent(component: Components.IComponent): void {
             this.components.push(component);
+            return;
         }
     }
 }

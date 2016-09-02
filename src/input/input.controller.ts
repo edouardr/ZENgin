@@ -7,6 +7,10 @@ namespace Systems {
     }
 
     export class InputController implements IInputController {
+        constructor() {
+            this.init();
+        }
+
         update(dt: number) {
 
         }
