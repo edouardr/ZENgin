@@ -1,7 +1,9 @@
 module.exports = {
     entry: "./src/app.ts",
     output: {
-        filename: "./dist/bundle.js",
+        path: __dirname + "/dist",
+        publicPath: "/dist/",
+        filename: "bundle.js",
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -9,7 +11,7 @@ module.exports = {
 
     resolve: {
         // Add '.ts' as resolvable extensions.
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".js"]
+        extensions: ["", ".ts", ".js"]
     },
 
     module: {

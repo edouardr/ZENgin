@@ -1,3 +1,3 @@
-export class Entity{
-    func = (x: number) => x * x;
+export class Entity {
+    public func(x: number): number { return x * x; }
 }
