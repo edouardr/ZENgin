@@ -1,26 +1,25 @@
-/// <reference path="../core/systems.ts" />
-/// <reference path="../common/common.ts" />
+import * as Systems from "../_systems"
+import { Common } from "../_utils"
 
-namespace Systems {
-    export interface IInputController extends ISystem {
+
+export interface IInputController extends Systems.ISystem {
+
+}
+
+export class InputController implements IInputController {
+    constructor() {
+        this.init();
+    }
+
+    update(dt: number) {
 
     }
 
-    export class InputController implements IInputController {
-        constructor() {
-            this.init();
-        }
+    init() {
 
-        update(dt: number) {
+    }
 
-        }
+    sendMessage(msg: Common.IMessage) {
 
-        init() {
-
-        }
-
-        sendMessage(msg: Common.IMessage) {
-
-        }
     }
 }

@@ -1,7 +1,7 @@
-/// <reference path="../core/components.ts" />
+import * as Components from "../_components"
+import { Common } from "../_utils"
 
-namespace Components {
-    export interface IKeyBoard extends IComponent {
+    export interface IKeyBoard extends Components.IComponent {
         keyState: Array<boolean>,
         isDown: (keyCode: number) => boolean
     }
@@ -24,4 +24,4 @@ namespace Components {
             return this.keyState[keyCode] === true;
         }
     }
-}
+

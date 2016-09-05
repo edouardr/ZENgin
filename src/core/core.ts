@@ -1,5 +1,5 @@
-/// <reference path="./components.ts" />
-/// <reference path="../common/common.ts" />
+import * as Components from "../_components"
+import { Common } from "../_utils"
 import { ICreator } from "../objectFactory/creator"
 
 export interface IGameObject {

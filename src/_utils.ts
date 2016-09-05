@@ -3,5 +3,6 @@
  */
 
 import * as Collections from "./common/collections/index"
+import * as Common from "./common/common"
 
-export {Collections}
+export {Collections, Common}

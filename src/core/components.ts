@@ -1,4 +1,3 @@
-namespace Components {
-    export interface IComponent {
-    }
+
+export interface IComponent {
 }
