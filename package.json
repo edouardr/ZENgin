@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "postinstall": "typings install --overwrite --save",
-    "test": "karma start"
+    "clean": "rimraf ./dist",
+    "test": "karma start",
+    "build-dev": "webpack",
+    "build-prod": "npm run clean && webpack -p"
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,7 @@
     "typescript"
   ],
   "author": "Edouard Riviere",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/edouardr/zengin/issues"
   },
