@@ -4,10 +4,11 @@ import * as Systems from "../../src/_systems";
 
 describe("Core", () => {
     let factory: Systems.ObjectFactory = new Systems.ObjectFactory();
+    factory.register("Entity", new Core.EntityCreator());
 
     it("should instantiate an Entity", function() {
-        let entity = factory.create(window, "Core.Entity", {}) as Core.Entity;
-        //demonstrates use of custom matcher
-        expect(entity.func(5)).to.be.equal(25);
+        let entity = factory.create("Entity", {});
+        
+        expect(entity as Core.Entity).to.not.be.equal(null);
     });
 })

@@ -1,7 +1,5 @@
 /**
  * This file will represent Systems namespace
- * 
- * @author Edouard Riviere
  */
 
 export * from "./core/systems";

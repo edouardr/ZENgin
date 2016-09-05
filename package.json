@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "postinstall": "typings install --overwrite --save",
+    "clean": "rimraf ./dist",
     "test": "karma start",
     "build-dev": "webpack",
-    "build-prod": "webpack -p"
+    "build-prod": "npm run clean && webpack -p"
   },
   "repository": {
     "type": "git",

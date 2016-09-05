@@ -1,8 +1,10 @@
 import * as Systems from "../_systems"
+import { ICreator } from "./creator"
+import { Collections } from "../_utils"
 
 export interface IObjectFactory extends Systems.ISystem {
-    create: (scope: Object, type: string, properties: PropertyDescriptorMap) => any
-    register: (creator: any) => void
+    create(type: string, properties: PropertyDescriptorMap): any
+    register(type: string, creator: ICreator): void
 }
 
 /**
@@ -13,6 +15,9 @@ export interface IObjectFactory extends Systems.ISystem {
  */
 export class ObjectFactory implements IObjectFactory {
 
+    private map: Collections.HashMap<ICreator>
+    private objectList: any[]
+    
     /**
      * Creates an instance of Factory.
      * 
@@ -27,7 +32,8 @@ export class ObjectFactory implements IObjectFactory {
      * @param {*} creator
      * @returns
      */
-    register(creator: any) {
+    register(type: string, creator: ICreator): void {
+        this.map.add(type, creator);
         return;
     }
 
@@ -38,22 +44,12 @@ export class ObjectFactory implements IObjectFactory {
      * @param {string} type - type name to instantiate
      * @param {PropertyDescriptorMap} properties - properties to initialize the object with
      */
-    create(scope: Object, type: string, properties: PropertyDescriptorMap): any {
-        // get an array of module names
-        let decomposedNamespace: string[] = type.split('.'),
-            // init instance with scope
-            typedInstance: any = scope,
-            // init index at 0, to loop through decomposedNamespace
-            index: number = 0;
+    create(type: string, properties: PropertyDescriptorMap): any {
+        var newObject: any = this.map.get(type).create(properties);
 
-        // loop through module names to get object type from scope
-        while ((typedInstance = typedInstance[decomposedNamespace[index]]) && decomposedNamespace.length > index && ++index);
+        this.objectList.push(newObject);
 
-        // throw exception if type was not found on scope
-        if (!typedInstance) throw new TypeError(`${type} not found on ${scope}`);
-
-        // return new instance of type
-        return Object.create(typedInstance.prototype, properties);
+        return newObject;
     }
 
     /**
@@ -62,7 +58,7 @@ export class ObjectFactory implements IObjectFactory {
      * @param {number} dt
      * @returns
      */
-    update(dt: number) {
+    update(dt: number): void {
         return;
     }
 
@@ -71,7 +67,9 @@ export class ObjectFactory implements IObjectFactory {
      * 
      * @returns
      */
-    init() {
+    init(): void {
+        this.map = new Collections.HashMap<ICreator>();
+        this.objectList = new Array();
         return;
     }
 
@@ -81,7 +79,7 @@ export class ObjectFactory implements IObjectFactory {
      * @param {*} message
      * @returns
      */
-    sendMessage(message: any) {
+    sendMessage(message: any): void {
         return;
     }
 }
