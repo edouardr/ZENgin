@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { Collections } from "../../src/_utils";
 
 describe("HashMap", () => {
@@ -7,7 +6,7 @@ describe("HashMap", () => {
         hashMap.add("first", 1);
         hashMap.add("second", 2);
         hashMap.add("third", 3);
-        expect(hashMap.size).to.be.equal(3);
+        expect(hashMap.size).toBe(3);
     });
 
     it("gets the correct element", () => {
@@ -15,7 +14,7 @@ describe("HashMap", () => {
         hashMap.add("first", 1);
         hashMap.add("second", 2);
 
-        expect(hashMap.get("first")).to.be.equal(1);
+        expect(hashMap.get("first")).toBe(1);
     });
 
     it("returns true if it contains element", () => {
@@ -23,14 +22,14 @@ describe("HashMap", () => {
         hashMap.add("first", 1);
         hashMap.add("second", 2);
 
-        expect(hashMap.contains(1)).to.be.equal(true);
+        expect(hashMap.contains(1)).toBe(true);
     });
 })
 
 describe("Helpers", () => {
     describe("Equals Method", () => {
         it("confirms equality", () => {
-            expect(Collections.Helpers.equals(10, 15)).to.be.equal(false);
+            expect(Collections.Helpers.equals(10, 15)).toBe(false);
         });
     });
 })
