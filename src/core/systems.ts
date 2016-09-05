@@ -1,14 +1,28 @@
-/// <reference path="../common/common.ts" />
+/**
+ * Defines a System
+ * 
+ * @export
+ * @interface ISystem
+ */
+export interface ISystem {
 
-namespace Systems {
-    export interface ISystem {
-        // All systems must update each game loop
-        update: (dt: number) => void
+    /**
+     * Fires at each game loop
+     * 
+     * @param {number} dt
+     */
+    update(dt: number): void;  
 
-        // It's good practice to separate the construction and initialization code.
-        init: () => void;
-
-        // This recieves any messages sent to the core engine
-        sendMessage: (msg: Common.IMessage) => void;
-    }
+    /**
+     * Needs to be called in constructor. 
+     * Separates the construction and initialization code.
+     */
+    init(): void;
+    
+    /**
+     * recieves any messages sent to the core engine
+     * 
+     * @param {*} message - message to be sent
+     */
+    sendMessage(message: any): void;
 }

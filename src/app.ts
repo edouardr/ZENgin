@@ -1,11 +1,22 @@
-/// <reference path="./common/common.ts" />
 
-/// <reference path="./core/core.ts" />
-/// <reference path="./core/systems.ts" />
+import * as Core from "./_core";
+import * as Systems from "./_systems";
+import * as Utils from "./_utils";
 
-/// <reference path="./input/input.controller.ts" />
-/// <reference path="./input/keyboard.ts" />
 
-/// <reference path="./core/components.ts" />
+/**
+ * Extends the original Object interface
+ * 
+ * @interface Object
+ */
+interface Object {
+    /**
+     * Tests is this equals another object 
+     * 
+     * @param {Object} otherObj
+     * @returns {boolean}
+     */
+    equals(otherObj: any): boolean
+}
 
-export {Common, Core, Components, Systems};
+export { Core, Systems, Utils }

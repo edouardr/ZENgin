@@ -1,35 +1,48 @@
 /// <reference path="./components.ts" />
 /// <reference path="../common/common.ts" />
+import { ICreator } from "../objectFactory/creator"
 
-namespace Core {
-    export interface IGameObject {
-        position: Common.Vector
-        components: Array<Components.IComponent>,
-        getComponent: (id: string) => Components.IComponent,
-        hasComponent: (id: string) => boolean,
-        addComponent: (component: any) => void
+export interface IGameObject {
+    position: Common.Vector
+    components: Array<Components.IComponent>,
+    getComponent: (id: string) => Components.IComponent,
+    hasComponent: (id: string) => boolean,
+    addComponent: (component: any) => void
+}
+
+export class GameObject implements IGameObject {
+    position: Common.Vector
+    components: Array<Components.IComponent>
+
+    constructor(canvas: HTMLCanvasElement) {
+
     }
 
-    export class GameObject implements IGameObject {
-        position: Common.Vector
-        components: Array<Components.IComponent>
+    getComponent(id: string): Components.IComponent {
+        // TODO: add logic here
+        return null;
+    }
 
-        constructor(canvas: HTMLCanvasElement){
+    hasComponent(id: string): boolean {
+        return this.getComponent(id) !== null;
+    }
 
-        }
+    addComponent(component: Components.IComponent): void {
+        this.components.push(component);
+        return;
+    }
+}
 
-        getComponent(id: string): Components.IComponent {
-            // TODO: add logic here
-            return null;
-        }
+export class Entity extends Object {
+    public func(x: number): number { return x * x; }
 
-        hasComponent(id: string): boolean {
-            return this.getComponent(id) !== null;
-        }
+    equals(otherObject: Entity): boolean {
+        return this.func(5) === otherObject.func(5);
+    }
+}
 
-        addComponent(component: Components.IComponent): void {
-            this.components.push(component);
-            return;
-        }
+export class EntityCreator implements ICreator {
+    create(): Entity {
+        return new Entity();
     }
 }
