@@ -38,6 +38,6 @@ node_modules
 # Typescript definitions
 typings
 
-# generated files
+# Generated scripts
 dist
 *.js.map

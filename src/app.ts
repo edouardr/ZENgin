@@ -1,5 +1,7 @@
+
 import * as Core from "./_core";
 import * as Systems from "./_systems";
+import * as Components from "./_components";
 import * as Utils from "./_utils";
 
 
@@ -18,4 +20,4 @@ interface Object {
     equals(otherObj: any): boolean
 }
 
-export { Core, Systems, Utils }
+export { Core, Systems, Components, Utils }
