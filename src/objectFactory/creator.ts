@@ -1,3 +1,9 @@
+/**
+ * 
+ * 
+ * @export
+ * @interface ICreator
+ */
 export interface ICreator {
 
     /**

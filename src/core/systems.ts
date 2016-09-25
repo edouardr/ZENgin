@@ -1,3 +1,5 @@
+import * as Core from "../_core"
+
 /**
  * Defines a System
  * 
@@ -9,9 +11,9 @@ export interface ISystem {
     /**
      * Fires at each game loop
      * 
-     * @param {number} dt
+     * @param {number} dt - delta time
      */
-    update(dt: number): void;  
+    update(dt: number, objects: Core.GameObject[]): void;  
 
     /**
      * Needs to be called in constructor. 
