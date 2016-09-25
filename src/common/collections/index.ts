@@ -1,4 +1,4 @@
-import {HashMap} from "./hashmap" 
-import {Helpers} from "./helpers" 
+import { HashMap } from "./hashmap" 
+import { Helpers } from "./helpers" 
 
-export {HashMap, Helpers}
+export { HashMap, Helpers }
