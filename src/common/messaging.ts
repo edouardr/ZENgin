@@ -3,23 +3,29 @@ export interface IMessage {
 }
 
 export class MessageArray {
-    [index: string]: ISubscribeFunction
+    [index: string]: ISubscribeFunction[]
 }
 
 let messages: MessageArray = new MessageArray()
 
 export interface ISubscribeFunction {
-    (msg: string, data: any): any|void
+    (msg: string, data: IMessage): IMessage|void
 }
 
 export function subscribe(msg: string, callBack: ISubscribeFunction){
-    messages[msg] = callBack;
+    if (messages[msg] === undefined){
+        messages[msg] = new Array<ISubscribeFunction>();
+    }
+
+    messages[msg].push(callBack);
 }
 
 export function unSubscribe(callBack: ISubscribeFunction){
 
 }
 
-export function publish(msg: string, data: any){
-
+export function publish(msg: string, data: IMessage){
+    messages[msg].forEach(c =>{
+        c(msg, data);
+    })
 }
