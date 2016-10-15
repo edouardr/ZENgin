@@ -10,8 +10,8 @@
     "postinstall": "typings install --overwrite --save",
     "clean": "rimraf ./dist",
     "test": "jest --coverage",
-    "build-dev": "webpack",
-    "build-prod": "npm run clean && webpack -p",
+    "build:dev": "webpack",
+    "build:prod": "npm run clean && webpack -p",
     "update:packages": "rm -rf node_modules && npm update --save-dev && npm update --save"
   },
   "repository": {
