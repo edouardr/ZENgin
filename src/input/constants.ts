@@ -1,5 +1,13 @@
-export const enum INPUT_KEYS {
-    LEFT = 37,
-    RIGHT = 39,
-    SPACE = 32
+const INPUT_KEYS = {
+    LEFT: "ArrowLeft" as "ArrowLeft",
+    RIGHT: "ArrowRight" as "ArrowRight",
+    UP: "ArrowUp" as "ArrowUp",
+    DOWN: "ArrowDown" as "ArrowDowns"
 }
+
+const INPUT_EVENTS = {
+    KEY_DOWN: "keydown" as "keydown",
+    KEY_UP: "keyup" as "keyup"
+}
+
+export { INPUT_KEYS, INPUT_EVENTS };
