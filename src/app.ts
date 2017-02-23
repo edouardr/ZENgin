@@ -14,10 +14,10 @@ interface Object {
     /**
      * Tests is this equals another object 
      * 
-     * @param {Object} otherObj
+     * @param {Object} obj
      * @returns {boolean}
      */
-    equals(otherObj: any): boolean
+    equals(obj: any): boolean
 }
 
 export { Core, Systems, Components, Utils }

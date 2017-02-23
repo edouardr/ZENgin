@@ -3,42 +3,19 @@ import * as Systems from "../_systems"
 import * as Components from "../_components"
 import { Messaging } from "../_utils"
 
+export class InputController implements Systems.ISystem {
 
-/**
- * 
- * 
- * @export
- * @interface IInputController
- * @extends {Systems.ISystem}
- */
-export interface IInputController extends Systems.ISystem {
-
-}
-
-/**
- * 
- * 
- * @export
- * @class InputController
- * @implements {IInputController}
- */
-export class InputController implements IInputController {
-
-    /**
-     * Creates an instance of InputController.
-     * It is good practice to have an init func.
-     */
     constructor() {
         this.init();
     }
 
     /**
-     * Loops through all GO and get components that are related to input
+     * Loops through all Game Objects and get components that are related to input
      * 
      * @param {number} dt - delta time
-     * @param {Core.GameObject[]} objects - all GO
+     * @param {Core.GameObject[]} objects - all game objects
      */
-    update(dt: number, objects: Core.GameObject[]) {
+    update(dt: number, objects: Core.GameObject[]): void {
         let comp: Components.IComponent;
         let go: Core.GameObject;
         for(let i = 0; i < objects.length; ++i){
@@ -51,19 +28,11 @@ export class InputController implements IInputController {
         return;
     }
 
-    /**
-     * 
-     */
-    init() {
+    init(): void {
         return;
     }
 
-    /**
-     * 
-     * 
-     * @param {Common.IMessage} msg
-     */
-    sendMessage(msg: Messaging.IMessage) {
+    sendMessage(msg: Messaging.IMessage): void {
         return;
     }
 }

@@ -24,12 +24,36 @@ describe("HashMap", () => {
 
         expect(hashMap.contains(1)).toBe(true);
     });
+
+    it("returns false if it doesn't contain element", () => {
+        let hashMap = new Collections.HashMap<number>();
+        hashMap.add("first", 1);
+        hashMap.add("second", 2);
+
+        expect(hashMap.contains(3)).toBe(false);
+    });
+
+    it("returns true if it contains key", () => {
+        let hashMap = new Collections.HashMap<number>();
+        hashMap.add("first", 1);
+        hashMap.add("second", 2);
+
+        expect(hashMap.containsKey("first")).toBe(true);
+    });
+
+    it("returns false if it doesn't contain key", () => {
+        let hashMap = new Collections.HashMap<number>();
+        hashMap.add("first", 1);
+        hashMap.add("second", 2);
+
+        expect(hashMap.containsKey("third")).toBe(false);
+    });
 })
 
 describe("Helpers", () => {
     describe("Equals Method", () => {
         it("confirms equality", () => {
-            expect(Collections.Helpers.equals(10, 15)).toBe(false);
+            expect(Collections.Helpers.equals(15, 15)).toBe(true);
         });
     });
 })

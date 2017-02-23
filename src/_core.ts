@@ -2,4 +2,4 @@
  * This file will represent Core namespace
  */
 
-export * from "./core/core"
+export * from "./core/game-object"

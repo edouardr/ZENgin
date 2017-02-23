@@ -1,3 +1,3 @@
-export class Dummy{
-    
+export interface INameToValueMap<TValue> {
+    [key: string]: TValue
 }

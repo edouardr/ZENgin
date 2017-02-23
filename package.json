@@ -31,21 +31,25 @@
   },
   "homepage": "https://github.com/edouardr/zengin#readme",
   "devDependencies": {
-    "jest-cli": "^15.1.1",
-    "ts-loader": "^0.8.2",
+    "jest-cli": "^18.1.0",
+    "ts-jest": "^19.0.0",
+    "ts-loader": "^2.0.0",
     "typescript": "^2.0.3",
-    "typings": "^1.4.0",
-    "webpack": "^1.13.2"
+    "typings": "^2.1.0",
+    "webpack": "^2.2.1"
   },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.ts"
     ],
-    "scriptPreprocessor": "<rootDir>/jest-typescript-preprocessor.js",
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.spec\\.ts$",
     "moduleFileExtensions": [
       "ts",
+      "tsx",
       "js"
-    ],
-    "testRegex": "/__tests__/.*\\.ts$"
+    ]
   }
 }
